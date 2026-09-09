@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anant Upadhyay — Applied AI & Offensive Security | Portfolio</title>
+  
+  <!-- SEO & Social OpenGraph Metadata -->
+  <meta name="description" content="Portfolio of Anant Upadhyay — Class 12 Commerce & AI student, offensive security researcher, full-stack builder, and competitive field hockey athlete from Kanpur, India.">
+  <meta name="keywords" content="Anant Upadhyay, Applied AI, Cybersecurity, Offensive Security, Azure AI, Python, Pyrogram, Kali Linux, Metasploit, k6, Tailwind, Kanpur">
+  <meta name="author" content="Anant Upadhyay">
+  <meta property="og:title" content="Anant Upadhyay — Applied AI & Offensive Security | Portfolio">
+  <meta property="og:description" content="Engineering intelligent systems and securing digital infrastructure. Applied AI, offensive security sandboxes, and high-throughput automation.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://anantupadhyay.dev">
+  <meta property="og:image" content="anant-portrait.webp">
+  <meta property="og:site_name" content="AU.dev">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anant Upadhyay — Applied AI & Offensive Security | Portfolio">
+  <meta name="twitter:description" content="Engineering intelligent systems and securing digital infrastructure. Applied AI, offensive security sandboxes, and high-throughput automation.">
+
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            obsidian: '#06080E',
+            obsidian2: '#0B0F1A',
+            lime: '#A3E635',
+            cobalt: '#3B82F6'
+          },
+          animation: {
+            marquee: 'marquee 30s linear infinite',
+            pulseGlow: 'pulseGlow 2.5s infinite ease-in-out'
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' }
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.85', transform: 'scale(1.08)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+    body { background: #06080E; color: #FFFFFF; overflow-x: hidden; }
+    
+    .glass-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(163, 230, 53, 0.12), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+    
+    .glass-card:hover::before { opacity: 1; }
+    .glass-card:hover { border-color: rgba(163, 230, 53, 0.35); }
+
+    [data-tilt] {
+      transition: transform 0.15s ease-out;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-thumb { background: rgba(163, 230, 53, 0.25); border-radius: 999px; }
+    ::-webkit-scrollbar-track { background: #06080E; }
+  </style>
+</head>
+<body class="selection:bg-lime/30 selection:text-white">
+
+  <!-- Ambient Glow Gradients -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden -z-10">
+    <div class="absolute -top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full blur-[100px] bg-lime/[0.07] animate-pulseGlow"></div>
+    <div class="absolute top-[35%] -right-[15%] w-[700px] h-[700px] rounded-full blur-[110px] bg-cobalt/[0.09]"></div>
+    <div class="absolute bottom-0 left-[25%] w-[500px] h-[500px] rounded-full blur-[90px] bg-lime/[0.05]"></div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-obsidian/75 backdrop-blur-xl">
+    <div class="mx-auto max-w-[1280px] px-4 md:px-8 h-[64px] flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="#about" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-lime text-obsidian grid place-items-center font-jakarta font-black text-[13px] group-hover:scale-105 transition">AU</div>
+          <span class="font-jakarta font-bold text-[17px] tracking-tight">AU.dev</span>
+          <span class="hidden md:inline-flex ml-2 text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-white/50">KANPUR / IN</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-6 text-[13px] font-mono text-white/60">
+          <a href="#about" class="hover:text-white transition">About</a>
+          <a href="#projects" class="hover:text-white transition">Projects</a>
+          <a href="#security-lab" class="hover:text-white transition">Security Lab</a>
+          <a href="#certifications" class="hover:text-white transition">Certifications</a>
+          <a href="#athletics" class="hover:text-white transition">Athletics</a>
+          <a href="#contact" class="hover:text-white transition">Contact</a>
+        </nav>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden lg:inline-flex items-center gap-2 rounded-full border border-lime/40 bg-lime/10 px-4 py-2 text-[12px] font-mono font-semibold text-lime hover:bg-lime hover:text-obsidian transition">
+          Let's Talk <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+        <!-- Mobile Drawer Button -->
+        <button id="mobileMenuToggle" aria-label="Toggle navigation menu" class="lg:hidden w-10 h-10 rounded-xl border border-white/10 bg-white/[0.04] grid place-items-center text-white/80 hover:text-white hover:bg-white/[0.08] transition">
+          <i id="menuIcon" data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileDrawer" class="hidden lg:hidden border-t border-white/10 bg-obsidian/95 backdrop-blur-xl">
+      <div class="mx-auto max-w-[1280px] px-4 py-5 flex flex-col gap-2 font-mono text-sm">
+        <a href="#about" class="mobile-nav-link rounded-xl px-4 py-3 bg-white/[0.02] border border-white/5 text-white/70 hover:text-white flex items-center justify-between">
+          About <i data-lucide="chevron-right" class="w-4 h-4 text-white/30"></i>
+        </a>
+        <a href="#projects" class="mobile-nav-link rounded-xl px-4 py-3 bg-white/[0.02] border border-white/5 text-white/70 hover:text-white flex items-center justify-between">
+          Projects <i data-lucide="chevron-right" class="w-4 h-4 text-white/30"></i>
+        </a>
+        <a href="#security-lab" class="mobile-nav-link rounded-xl px-4 py-3 bg-white/[0.02] border border-white/5 text-white/70 hover:text-white flex items-center justify-between">
+          Security Lab <i data-lucide="chevron-right" class="w-4 h-4 text-white/30"></i>
+        </a>
+        <a href="#certifications" class="mobile-nav-link rounded-xl px-4 py-3 bg-white/[0.02] border border-white/5 text-white/70 hover:text-white flex items-center justify-between">
+          Certifications <i data-lucide="chevron-right" class="w-4 h-4 text-white/30"></i>
+        </a>
+        <a href="#athletics" class="mobile-nav-link rounded-xl px-4 py-3 bg-white/[0.02] border border-white/5 text-white/70 hover:text-white flex items-center justify-between">
+          Athletics <i data-lucide="chevron-right" class="w-4 h-4 text-white/30"></i>
+        </a>
+        <a href="#contact" class="mobile-nav-link rounded-xl px-4 py-3 bg-lime text-obsidian font-bold flex items-center justify-between">
+          Contact / Inquiries <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+        <div class="mt-2 grid grid-cols-2 gap-2">
+          <a href="mailto:anant013opp@gmail.com" class="rounded-xl border border-white/10 bg-white/[0.04] p-3 text-[12px] flex items-center justify-center gap-2 text-white/80">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i> Email
+          </a>
+          <a href="https://wa.me/918887092926" target="_blank" rel="noopener noreferrer" class="rounded-xl border border-lime/30 bg-lime/10 p-3 text-[12px] flex items-center justify-center gap-2 text-lime font-semibold">
+            <i data-lucide="message-square" class="w-3.5 h-3.5"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="relative mx-auto max-w-[1280px] px-4 md:px-8">
+
+    <!-- HERO SECTION -->
+    <section id="about" class="pt-10 md:pt-16 grid lg:grid-cols-[1.15fr_0.85fr] gap-8 md:gap-10 items-start">
+      <div class="min-w-0">
+        <div class="inline-flex items-center gap-2 rounded-full border border-lime/20 bg-lime/10 px-3 py-1.5">
+          <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
+          <span class="font-mono text-[10.5px] tracking-wider text-lime uppercase font-semibold">OPEN FOR OPPORTUNITIES | COMMERCE & AI SPECIALIST</span>
+        </div>
+
+        <!-- Stable Headline (No scramble formatting destruction) -->
+        <h1 class="font-jakarta mt-6 text-[34px] md:text-[54px] lg:text-[58px] leading-[1.0] font-black tracking-tight">
+          Engineering Intelligent<br>
+          <span class="text-white/40">Systems & Securing</span><br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime to-cobalt">Digital Infrastructure.</span>
+        </h1>
+
+        <p class="mt-5 max-w-[60ch] text-[15px] md:text-[16px] leading-[1.65] text-white/65">
+          Class 12 Commerce & AI student bridging business strategy with full-stack development, cloud AI pipelines, offensive security, and high-performance field hockey. Building zero-template production systems from Kanpur.
+        </p>
+
+        <!-- Dynamic Counter Ribbon -->
+        <div id="metrics-ribbon" class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="glass-card rounded-2xl p-4">
+            <div data-tilt>
+              <div class="font-jakarta text-[28px] font-extrabold leading-none text-white">
+                <span class="counter-val" data-target="10">0</span><span class="text-lime">+</span>
+              </div>
+              <div class="font-mono mt-2 text-[10px] leading-[1.3] text-white/45 uppercase tracking-wide">Production & Automation Builds</div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-4">
+            <div data-tilt>
+              <div class="font-jakarta text-[28px] font-extrabold leading-none text-white">
+                <span class="counter-val" data-target="12">0</span><span class="text-cobalt">+</span>
+              </div>
+              <div class="font-mono mt-2 text-[10px] leading-[1.3] text-white/45 uppercase tracking-wide">Enterprise & Cloud Certs</div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-4">
+            <div data-tilt>
+              <div class="font-jakarta text-[28px] font-extrabold leading-none text-white">
+                <span class="counter-val" data-target="47">0</span>
+              </div>
+              <div class="font-mono mt-2 text-[10px] leading-[1.3] text-white/45 uppercase tracking-wide">National Rank Epoch Olympiad</div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-4">
+            <div data-tilt>
+              <div class="font-jakarta text-[22px] font-extrabold leading-none text-lime">Captain</div>
+              <div class="font-mono mt-2 text-[10px] leading-[1.3] text-white/45 uppercase tracking-wide">Jr. Hockey & Gold Medalist</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#projects" class="inline-flex items-center gap-2 rounded-full bg-white text-obsidian px-6 py-3 text-[13px] font-bold hover:bg-white/90 transition">
+            Explore Projects <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="#security-lab" class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-[13px] font-semibold hover:bg-white/[0.08] transition">
+            <i data-lucide="shield" class="w-4 h-4 text-lime"></i> Security Lab
+          </a>
+          <a href="https://instagram.com/anantpandat13" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-full glass-card grid place-items-center text-white/70 hover:text-white transition">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+          </a>
+          <a href="tel:+918887092926" class="w-11 h-11 rounded-full glass-card grid place-items-center text-white/70 hover:text-white transition" title="Call directly">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Marquee Ribbon -->
+        <div class="mt-10 overflow-hidden rounded-full border border-white/10 bg-obsidian2 py-2.5">
+          <div class="flex w-[200%] animate-marquee">
+            <span class="font-mono text-[11px] tracking-[0.18em] text-white/40 whitespace-nowrap flex items-center gap-8">
+              <span>PYTHON</span> • <span>AZURE AI</span> • <span>PYROGRAM</span> • <span>METASPLOIT</span> • <span>KALI LINUX</span> • <span>TAILWIND</span> • <span>K6 LOAD TESTING</span> • <span>SNYK</span> • <span>GEMINI API</span> • <span>ASYNCIO</span> • <span>COMPUTER VISION</span> • 
+              <span>PYTHON</span> • <span>AZURE AI</span> • <span>PYROGRAM</span> • <span>METASPLOIT</span> • <span>KALI LINUX</span> • <span>TAILWIND</span> • <span>K6 LOAD TESTING</span> • <span>SNYK</span> • <span>GEMINI API</span> • <span>ASYNCIO</span> • <span>COMPUTER VISION</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Avatar Bento + Interactive Terminal -->
+      <div class="space-y-4 lg:sticky lg:top-[88px] h-fit">
+        
+        <!-- Founder Portrait Quick Card -->
+        <div class="glass-card rounded-[22px] p-5">
+          <div data-tilt class="flex items-center gap-4">
+            <div class="relative w-14 h-14 rounded-2xl border border-lime/30 overflow-hidden bg-obsidian2 shrink-0 group">
+              <!-- Optimized Image container with graceful fallback if file isn't present -->
+              <img 
+                src="anant-portrait.webp" 
+                alt="Anant Upadhyay" 
+                class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition duration-300"
+                onerror="this.onerror=null; this.parentElement.classList.add('grid','place-items-center'); this.remove(); document.getElementById('avatarFallback').classList.remove('hidden');"
+              />
+              <div id="avatarFallback" class="hidden font-jakarta font-black text-lime text-lg">AU</div>
+              <span class="absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full bg-lime border-2 border-obsidian animate-pulse"></span>
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between">
+                <div class="font-jakarta font-bold text-[15px] leading-tight">Anant Upadhyay</div>
+                <span class="font-mono text-[10px] text-lime px-2 py-0.5 rounded-full bg-lime/10 border border-lime/20">LIVE NODE</span>
+              </div>
+              <div class="font-mono text-[11px] text-white/50 mt-0.5">Commerce + AI • DPS Kalyanpur</div>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-white/10 flex flex-wrap gap-2 text-[11px] font-mono">
+            <a href="mailto:anant013opp@gmail.com" class="flex-1 rounded-xl bg-white/[0.03] border border-white/10 p-2.5 text-center text-white/70 hover:text-white hover:border-white/20 transition">
+              anant013opp@gmail.com
+            </a>
+            <a href="https://wa.me/918887092926" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-lime/10 border border-lime/30 px-3 py-2.5 text-lime font-bold hover:bg-lime hover:text-obsidian transition">
+              WhatsApp ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Terminal Shell -->
+        <div class="glass-card rounded-[22px] overflow-hidden">
+          <div data-tilt>
+            <div class="flex items-center justify-between border-b border-white/10 px-4 py-3 bg-white/[0.02]">
+              <div class="flex items-center gap-2">
+                <i data-lucide="terminal" class="w-4 h-4 text-lime"></i>
+                <span class="font-mono text-[12px] text-white/70">anant@kanpur-node: ~ /zsh</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500/70"></span>
+              </div>
+            </div>
+
+            <!-- Terminal output area -->
+            <div id="terminalLog" class="h-[200px] overflow-y-auto px-4 py-3 font-mono text-[11px] leading-[1.6] text-white/70 space-y-1">
+              <div class="text-white/40">// Interactive Terminal v2.6 • Type below or click command chips</div>
+              <div><span class="text-lime">anant@kanpur-node:~$</span> whoami</div>
+              <div class="text-white/80 pl-3">> Anant Upadhyay — Commerce & Applied AI Developer</div>
+              <div><span class="text-lime">anant@kanpur-node:~$</span> nmap -sV target</div>
+              <div class="text-white/80 pl-3">> 443/tcp open https — Azure AI Document Intelligence & Cloudflare</div>
+            </div>
+
+            <!-- Terminal Command Prompt Input -->
+            <form id="terminalForm" class="border-t border-white/10 p-2 flex items-center gap-2 bg-obsidian2">
+              <span class="font-mono text-[11px] text-lime pl-2">$</span>
+              <input 
+                id="terminalInput"
+                type="text" 
+                placeholder="type 'help', 'certs', 'skills'..." 
+                class="flex-1 bg-transparent outline-none font-mono text-[12px] placeholder:text-white/25 text-white"
+                autocomplete="off"
+              />
+            </form>
+
+            <!-- Command chips -->
+            <div class="flex flex-wrap gap-1.5 p-3 pt-2 bg-obsidian2 border-t border-white/5">
+              <button type="button" class="term-chip rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[10px] text-white/60 hover:text-lime hover:border-lime/40 transition" data-cmd="whoami">whoami</button>
+              <button type="button" class="term-chip rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[10px] text-white/60 hover:text-lime hover:border-lime/40 transition" data-cmd="certs">certs</button>
+              <button type="button" class="term-chip rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[10px] text-white/60 hover:text-lime hover:border-lime/40 transition" data-cmd="skills">skills</button>
+              <button type="button" class="term-chip rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[10px] text-white/60 hover:text-lime hover:border-lime/40 transition" data-cmd="contact">contact</button>
+              <button type="button" class="term-chip rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-[10px] text-white/60 hover:text-lime hover:border-lime/40 transition" data-cmd="clear">clear</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="mt-24 md:mt-32">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 font-mono text-[11px] tracking-widest text-lime uppercase font-semibold">
+            <i data-lucide="cpu" class="w-3.5 h-3.5 text-lime"></i> Selected Builds
+          </div>
+          <h2 data-scramble="Filterable Production Systems" class="font-jakarta mt-3 text-[28px] md:text-[38px] font-bold tracking-tight">
+            Filterable Production Systems
+          </h2>
+          <p class="font-mono text-[12px] text-white/45 mt-1">Verifiable deployments across Applied AI, offensive workflows, and commercial funnels.</p>
+        </div>
+
+        <!-- Filter Tab Buttons -->
+        <div class="flex flex-wrap gap-2" id="projectFilters">
+          <button data-filter="all" class="proj-filter-btn active rounded-full px-4 py-2 text-[12px] font-mono font-bold bg-white text-obsidian transition">All</button>
+          <button data-filter="ai" class="proj-filter-btn rounded-full px-4 py-2 text-[12px] font-mono bg-white/[0.04] border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition">Applied AI</button>
+          <button data-filter="security" class="proj-filter-btn rounded-full px-4 py-2 text-[12px] font-mono bg-white/[0.04] border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition">Security & Automation</button>
+          <button data-filter="web" class="proj-filter-btn rounded-full px-4 py-2 text-[12px] font-mono bg-white/[0.04] border border-white/10 text-white/60 hover:text-white hover:border-white/20 transition">Web Platforms</button>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div id="projectGrid" class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        
+        <!-- Project 1: HearMe AI -->
+        <article data-category="ai" class="project-card glass-card rounded-[20px] p-6 flex flex-col justify-between group">
+          <div data-tilt class="flex flex-col h-full">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-lime/20 bg-lime/10 px-2.5 py-1 font-mono text-[10px] text-lime font-semibold">
+                  APPLIED AI & SDG 10
+                </span>
+                <span class="font-mono text-[10px] text-white/40">98.2% Accuracy</span>
+              </div>
+              <h3 class="font-jakarta mt-4 text-[17px] font-bold leading-tight text-white group-hover:text-lime transition">
+                HearMe AI (Sign Language to Speech & Text)
+              </h3>
+              <p class="mt-2.5 text-[13px] leading-[1.6] text-white/60">
+                Real-time accessibility platform converting dynamic sign language gestures to synthetic speech and text using Computer Vision pipelines, targeted at UN SDG 10.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Computer Vision</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Azure AI</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-cobalt">Python</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Accessibility</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="font-mono text-[10px] text-white/35 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span> VERIFIED
+              </span>
+              <!-- WhatsApp Redirect Link -->
+              <a 
+                href="https://wa.me/918887092926?text=Hi%20Anant%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20know%20more%20details%20about%20your%20project%3A%20HearMe%20AI%20(Sign%20Language%20to%20Speech%20%26%20Text%20Engine)" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1 font-mono text-[11px] text-white/60 hover:text-lime transition"
+              >
+                Details <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Institutional Web Portal -->
+        <article data-category="web" class="project-card glass-card rounded-[20px] p-6 flex flex-col justify-between group">
+          <div data-tilt class="flex flex-col h-full">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 font-mono text-[10px] text-white/70 font-semibold">
+                  FULL-STACK WEB
+                </span>
+                <span class="font-mono text-[10px] text-lime">Production</span>
+              </div>
+              <h3 class="font-jakarta mt-4 text-[17px] font-bold leading-tight text-white group-hover:text-lime transition">
+                Institutional Web Portal (Smt. Shyama Devi Group)
+              </h3>
+              <p class="mt-2.5 text-[13px] leading-[1.6] text-white/60">
+                Multi-page academic platform deployed on custom DNS and cloud hosting with automated asset routing, high Lighthouse scores, and responsive mobile architecture.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">HTML5/Tailwind</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">JavaScript</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Cloud DNS</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="font-mono text-[10px] text-white/35 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span> VERIFIED
+              </span>
+              <a 
+                href="https://wa.me/918887092926?text=Hi%20Anant%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20know%20more%20details%20about%20your%20project%3A%20Institutional%20Web%20Portal%20(Smt.%20Shyama%20Devi%20Group)" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1 font-mono text-[11px] text-white/60 hover:text-lime transition"
+              >
+                Details <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Telegram Automation Suite -->
+        <article data-category="security" class="project-card glass-card rounded-[20px] p-6 flex flex-col justify-between group">
+          <div data-tilt class="flex flex-col h-full">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-cobalt/20 bg-cobalt/10 px-2.5 py-1 font-mono text-[10px] text-cobalt font-semibold">
+                  BACKEND & AUTOMATION
+                </span>
+                <span class="font-mono text-[10px] text-white/40">10k+ req/day</span>
+              </div>
+              <h3 class="font-jakarta mt-4 text-[17px] font-bold leading-tight text-white group-hover:text-lime transition">
+                High-Throughput Telegram Automation Suite
+              </h3>
+              <p class="mt-2.5 text-[13px] leading-[1.6] text-white/60">
+                Scalable asynchronous bot network (CulinaryAI and media distribution engines) handling dynamic requests using Pyrogram, AsyncIO workers, and resilient REST APIs.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-cobalt">Python</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Pyrogram</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">AsyncIO</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">REST APIs</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="font-mono text-[10px] text-white/35 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span> VERIFIED
+              </span>
+              <a 
+                href="https://wa.me/918887092926?text=Hi%20Anant%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20know%20more%20details%20about%20your%20project%3A%20High-Throughput%20Telegram%20Automation%20Suite" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1 font-mono text-[11px] text-white/60 hover:text-lime transition"
+              >
+                Details <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Conversational AI Agent -->
+        <article data-category="ai" class="project-card glass-card rounded-[20px] p-6 flex flex-col justify-between group">
+          <div data-tilt class="flex flex-col h-full">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-lime/20 bg-lime/10 px-2.5 py-1 font-mono text-[10px] text-lime font-semibold">
+                  NLP & GENERATIVE AI
+                </span>
+                <span class="font-mono text-[10px] text-white/40">Hinglish / EN</span>
+              </div>
+              <h3 class="font-jakarta mt-4 text-[17px] font-bold leading-tight text-white group-hover:text-lime transition">
+                Bilingual Conversational AI Agent
+              </h3>
+              <p class="mt-2.5 text-[13px] leading-[1.6] text-white/60">
+                Context-aware conversational agent integrated with Gemini and GPT APIs, supporting natural Hinglish/English dialect switching, structured JSON pipelines, and intent slots.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Gemini/GPT APIs</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-lime font-semibold">Prompt Eng.</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">JSON Pipelines</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="font-mono text-[10px] text-white/35 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span> VERIFIED
+              </span>
+              <a 
+                href="https://wa.me/918887092926?text=Hi%20Anant%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20know%20more%20details%20about%20your%20project%3A%20Bilingual%20Conversational%20AI%20Agent" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1 font-mono text-[11px] text-white/60 hover:text-lime transition"
+              >
+                Details <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5: Meta Ads Funnel -->
+        <article data-category="web" class="project-card glass-card rounded-[20px] p-6 flex flex-col justify-between group">
+          <div data-tilt class="flex flex-col h-full">
+            <div>
+              <div class="flex items-start justify-between gap-3">
+                <span class="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.04] px-2.5 py-1 font-mono text-[10px] text-white/70 font-semibold">
+                  COMMERCE & GROWTH
+                </span>
+                <span class="font-mono text-[10px] text-white/40">Shiv Tractors</span>
+              </div>
+              <h3 class="font-jakarta mt-4 text-[17px] font-bold leading-tight text-white group-hover:text-lime transition">
+                Meta Ads & Commercial Acquisition Funnel
+              </h3>
+              <p class="mt-2.5 text-[13px] leading-[1.6] text-white/60">
+                Engineered audience acquisition funnels, conversion tracking pixel setup, and performance ad creative testing for a regional tractor dealership.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Meta Ads Manager</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-white/50">Conversion Tracking</span>
+                <span class="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-[10px] text-lime">Strategy</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="font-mono text-[10px] text-white/35 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-lime"></span> VERIFIED
+              </span>
+              <a 
+                href="https://wa.me/918887092926?text=Hi%20Anant%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20know%20more%20details%20about%20your%20project%3A%20Meta%20Ads%20%26%20Commercial%20Acquisition%20Funnel" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="inline-flex items-center gap-1 font-mono text-[11px] text-white/60 hover:text-lime transition"
+              >
+                Details <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- OFFENSIVE SECURITY LAB SECTION -->
+    <section id="security-lab" class="mt-24 md:mt-32">
+      <div class="glass-card rounded-[28px] p-6 md:p-10 overflow-hidden">
+        <div data-tilt>
+          <div class="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <div class="inline-flex items-center gap-2 font-mono text-[11px] tracking-widest text-cobalt uppercase font-semibold">
+                <i data-lucide="shield" class="w-4 h-4 text-cobalt"></i> Offensive Security & Resilience Lab
+              </div>
+              <h2 data-scramble="Adversarial Testing & Stress Engineering" class="font-jakarta mt-3 text-[28px] md:text-[38px] font-bold tracking-tight">
+                Adversarial Testing & Stress Engineering
+              </h2>
+              <p class="font-mono text-[12px] text-white/45 mt-1">Kali Linux sandboxes, Metasploit handlers, CVE audits, and k6 concurrency benchmarks.</p>
+            </div>
+            <div class="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-[11px] text-white/60 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span> Kanpur Node: 99.98% Resilience
+            </div>
+          </div>
+
+          <div class="mt-8 grid lg:grid-cols-[1.2fr_0.8fr] gap-6">
+            <!-- Left: Frameworks & k6 Chart -->
+            <div class="space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="rounded-2xl border border-white/10 bg-obsidian2 p-4">
+                  <div class="font-mono text-[12px] text-cobalt font-semibold">Kali Linux & Metasploit</div>
+                  <p class="mt-2 text-[12.5px] leading-[1.5] text-white/55">Exploit verification, payload crafting via msfvenom, meterpreter sessions, and sandbox isolation.</p>
+                  <div class="mt-3 flex gap-1.5 font-mono text-[9px] text-white/40">
+                    <span class="px-2 py-0.5 rounded bg-white/5">msfconsole</span>
+                    <span class="px-2 py-0.5 rounded bg-white/5">sandbox</span>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-obsidian2 p-4">
+                  <div class="font-mono text-[12px] text-white/80 font-semibold">Reconnaissance & Footprinting</div>
+                  <p class="mt-2 text-[12.5px] leading-[1.5] text-white/55">Network asset mapping, target port discovery using nmap, and stack detection via BuiltWith.</p>
+                  <div class="mt-3 flex gap-1.5 font-mono text-[9px] text-white/40">
+                    <span class="px-2 py-0.5 rounded bg-white/5">nmap -sV</span>
+                    <span class="px-2 py-0.5 rounded bg-white/5">header-triage</span>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-obsidian2 p-4">
+                  <div class="font-mono text-[12px] text-lime font-semibold">Vulnerability Auditing (Snyk)</div>
+                  <p class="mt-2 text-[12.5px] leading-[1.5] text-white/55">Continuous dependency tree audits, open-source CVE mapping, and automated patch resolution.</p>
+                  <div class="mt-3 flex gap-1.5 font-mono text-[9px] text-white/40">
+                    <span class="px-2 py-0.5 rounded bg-white/5">snyk-test</span>
+                    <span class="px-2 py-0.5 rounded bg-white/5">0 critical</span>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-obsidian2 p-4">
+                  <div class="font-mono text-[12px] text-white/80 font-semibold">Concurrency Stress (k6)</div>
+                  <p class="mt-2 text-[12.5px] leading-[1.5] text-white/55">High-load concurrency benchmarking tracking Virtual Users (VUs), request duration, and latency curves.</p>
+                  <div class="mt-3 flex gap-1.5 font-mono text-[9px] text-white/40">
+                    <span class="px-2 py-0.5 rounded bg-white/5">500 VUs</span>
+                    <span class="px-2 py-0.5 rounded bg-white/5">p95 &lt; 200ms</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- k6 Latency Curve Visualizer -->
+              <div class="rounded-2xl border border-white/10 bg-obsidian2 p-5">
+                <div class="flex items-center justify-between font-mono">
+                  <span class="text-[11px] text-white/50 tracking-wider">K6 LATENCY CURVE — VIRTUAL USER RAMPS</span>
+                  <span class="text-[10px] text-lime px-2 py-0.5 rounded bg-lime/10 border border-lime/20">0.02% error rate</span>
+                </div>
+                <div class="mt-5 flex items-end gap-3 h-[90px]">
+                  <div class="flex-1 flex flex-col items-center gap-1.5">
+                    <div class="w-full rounded-t-lg bg-gradient-to-t from-cobalt/20 to-cobalt border border-cobalt/30" style="height: 35px"></div>
+                    <span class="font-mono text-[9px] text-white/40">50 VU</span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center gap-1.5">
+                    <div class="w-full rounded-t-lg bg-gradient-to-t from-cobalt/20 to-cobalt border border-cobalt/30" style="height: 48px"></div>
+                    <span class="font-mono text-[9px] text-white/40">100 VU</span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center gap-1.5">
+                    <div class="w-full rounded-t-lg bg-gradient-to-t from-lime/20 to-lime border border-lime/30" style="height: 62px"></div>
+                    <span class="font-mono text-[9px] text-lime font-bold">250 VU</span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center gap-1.5">
+                    <div class="w-full rounded-t-lg bg-gradient-to-t from-cobalt/20 to-cobalt border border-cobalt/30" style="height: 75px"></div>
+                    <span class="font-mono text-[9px] text-white/40">500 VU</span>
+                  </div>
+                  <div class="flex-1 flex flex-col items-center gap-1.5">
+                    <div class="w-full rounded-t-lg bg-gradient-to-t from-lime/20 to-lime border border-lime/30" style="height: 85px"></div>
+                    <span class="font-mono text-[9px] text-lime font-bold">1k VU</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Live Tail Audit Stream -->
+            <div class="rounded-2xl border border-white/10 bg-black/40 p-5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between font-mono border-b border-white/10 pb-3">
+                  <span class="text-[11px] text-white/50 tracking-wider">LIVE AUDIT TAIL</span>
+                  <span class="inline-flex items-center gap-1.5 text-[10px] text-lime">
+                    <span class="w-1.5 h-1.5 rounded-full bg-lime animate-pulse"></span> ACTIVE
+                  </span>
+                </div>
+                <div class="mt-4 space-y-2 font-mono text-[11px] leading-[1.5] text-white/50">
+                  <div><span class="text-white/20">[14:32:11]</span> <span class="text-cobalt">snyk test</span> — 0 high, 2 moderate patched</div>
+                  <div><span class="text-white/20">[14:28:04]</span> <span class="text-lime">k6 run</span> — VUs 250 → 500 ramp [p95: 183ms]</div>
+                  <div><span class="text-white/20">[13:55:22]</span> nmap -sV target — 3 open, nginx/1.24 hardened</div>
+                  <div><span class="text-white/20">[13:40:09]</span> msfconsole — exploit/multi/http verified</div>
+                  <div><span class="text-white/20">[13:12:44]</span> BuiltWith — TLS 1.3 / HSTS active</div>
+                  <div class="pt-2 text-lime">> anant@kanpur-node:~$ watching /var/log/audit.log</div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/10 grid grid-cols-3 gap-2 font-mono text-center">
+                <div class="rounded-xl bg-white/[0.04] border border-white/10 p-3">
+                  <div class="text-[10px] text-white/40">THREATS</div>
+                  <div class="font-jakarta font-bold text-white text-[13px] mt-0.5">0 CRIT</div>
+                </div>
+                <div class="rounded-xl bg-lime/10 border border-lime/20 p-3">
+                  <div class="text-[10px] text-lime/70">UPTIME</div>
+                  <div class="font-jakarta font-bold text-lime text-[13px] mt-0.5">99.98%</div>
+                </div>
+                <div class="rounded-xl bg-white/[0.04] border border-white/10 p-3">
+                  <div class="text-[10px] text-white/40">GATEWAY</div>
+                  <div class="font-jakarta font-bold text-white text-[13px] mt-0.5">KANPUR</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="mt-24 md:mt-32">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-lime/15 border border-lime/30 grid place-items-center">
+          <i data-lucide="award" class="w-4 h-4 text-lime"></i>
+        </div>
+        <h2 data-scramble="Licenses & Verified Credentials" class="font-jakarta text-[24px] md:text-[32px] font-bold">
+          Licenses & Verified Credentials
+        </h2>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Microsoft Credentials -->
+        <div class="glass-card rounded-[20px] p-5">
+          <div data-tilt>
+            <div class="font-mono text-[11px] tracking-wider text-lime font-bold">MICROSOFT AZURE AI</div>
+            <ul class="mt-3 space-y-2.5 text-[12.5px] leading-[1.4] text-white/70">
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 shrink-0"></span> Plan an Azure AI Document Intelligence Solution</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 shrink-0"></span> Create a Composed Document Intelligence Model</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 shrink-0"></span> Use Prebuilt Document Intelligence Models</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 shrink-0"></span> Analyze Images with Computer Vision</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 shrink-0"></span> Core Architectural Components of Azure & Cloud Concepts</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- IIT Kanpur & Techgyan -->
+        <div class="glass-card rounded-[20px] p-5">
+          <div data-tilt>
+            <div class="font-mono text-[11px] tracking-wider text-cobalt font-bold">IIT KANPUR & TECHGYAN</div>
+            <ul class="mt-3 space-y-2.5 text-[12.5px] leading-[1.4] text-white/70">
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cobalt mt-1.5 shrink-0"></span> Machine Learning Workshop & Hackathon (IIT Kanpur 2025)</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cobalt mt-1.5 shrink-0"></span> Generative AI Technical Track</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cobalt mt-1.5 shrink-0"></span> Artificial Intelligence Foundation Certification</li>
+              <li class="pt-2 text-[10px] font-mono text-white/40">Credential: T-IITK-100 • 29-30 March 2025</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Open University & Industry Olympiads -->
+        <div class="glass-card rounded-[20px] p-5">
+          <div data-tilt>
+            <div class="font-mono text-[11px] tracking-wider text-white/80 font-bold">OPEN UNIVERSITY UK & OLYMPIADS</div>
+            <ul class="mt-3 space-y-2.5 text-[12.5px] leading-[1.4] text-white/70">
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/40 mt-1.5 shrink-0"></span> <strong>Information Security:</strong> CIA Triad, Threat Modeling & Risk (OU UK)</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-white/40 mt-1.5 shrink-0"></span> <strong>IIDE:</strong> Digital Marketing Fundamentals Mastercourse</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 shrink-0"></span> <strong>Epoch Olympiad:</strong> National Rank 47, City Rank 29</li>
+              <li class="flex gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cobalt mt-1.5 shrink-0"></span> <strong>Cyber Olympiad (HCO):</strong> Credible Performance (Roll HB784865)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP & ATHLETICS SECTION -->
+    <section id="athletics" class="mt-24 md:mt-32">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/10 grid place-items-center">
+          <i data-lucide="trophy" class="w-4 h-4 text-lime"></i>
+        </div>
+        <h2 data-scramble="Leadership, Honors & Athletics" class="font-jakarta text-[24px] md:text-[32px] font-bold">
+          Leadership, Honors & Athletics
+        </h2>
+      </div>
+
+      <div class="mt-8 grid lg:grid-cols-2 gap-5">
+        <!-- Leadership & Awards -->
+        <div class="glass-card rounded-[24px] p-6 md:p-7">
+          <div data-tilt>
+            <div class="font-mono text-[11px] tracking-wider text-white/40 uppercase font-semibold">ACADEMIC & CLUB LEADERSHIP</div>
+            <div class="mt-4 space-y-3.5">
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="font-bold text-[13.5px]">Category Head: Cyber Security & Awareness and Techformers Clubs</div>
+                <div class="font-mono text-[11px] text-white/50 mt-0.5">Panorama 2025–26</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="font-bold text-[13.5px]">Event Head: Tech Team</div>
+                <div class="font-mono text-[11px] text-white/50 mt-0.5">Panorama 2024</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="font-bold text-[13.5px]">House Sports Captain (2026–27) & School Prefect (2023–24)</div>
+                <div class="font-mono text-[11px] text-white/50 mt-0.5">Discipline and institutional governance</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="font-bold text-[13.5px]">1st Place: Techno-Vanza (Online)</div>
+                <div class="font-mono text-[11px] text-white/50 mt-0.5">Miscellanea International Fest (DPS Bareilly)</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                <div class="font-bold text-[13.5px]">3rd Place: Postrolic</div>
+                <div class="font-mono text-[11px] text-white/50 mt-0.5">Eloquence Literary Fest (DPS Saharanpur)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Field Hockey High Performance -->
+        <div class="glass-card rounded-[24px] p-6 md:p-7 flex flex-col justify-between">
+          <div data-tilt>
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-[11px] tracking-wider text-lime uppercase font-semibold">HIGH-PERFORMANCE ATHLETE</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-lime/10 border border-lime/20 font-mono text-[10px] text-lime">FIELD HOCKEY</span>
+            </div>
+
+            <div class="mt-4 p-4 rounded-2xl bg-gradient-to-br from-lime/[0.08] to-transparent border border-lime/20">
+              <div class="font-mono text-[11px] text-lime font-bold">GREEN PARK ASTRO-TURF • 31 JAN 2026</div>
+              <div class="font-jakarta font-bold text-[17px] mt-1">3rd Place: 2nd Major Dhyanchand Memorial Hockey Tournament 2026</div>
+              <p class="mt-1 font-mono text-[11px] text-white/50 leading-[1.5]">
+                UP 5-A-Side Hockey Association, Kanpur (U.P.) — Certificate of Merit.
+              </p>
+            </div>
+
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/10">
+                <div class="font-mono text-[10px] text-white/40">2022–23 & 2018–19</div>
+                <div class="font-bold text-[13px] mt-1">1st Place: Inter-House Hockey</div>
+                <div class="font-mono text-[10px] text-white/40 mt-0.5">Shamrock House • Group A & B</div>
+              </div>
+              <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/10">
+                <div class="font-mono text-[10px] text-white/40">LEADERSHIP</div>
+                <div class="font-bold text-[13px] mt-1">Captain of Jr. Hockey Team</div>
+                <div class="font-mono text-[10px] text-white/40 mt-0.5">Field vision & pressure execution</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 font-mono text-[11px] text-white/40">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-lime"></i> Green Park Stadium, Kanpur
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="mt-24 md:mt-32 pb-16">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
+        
+        <!-- Left: Verified Channels & Click to Copy -->
+        <div class="glass-card rounded-[28px] p-6 md:p-8">
+          <div data-tilt>
+            <h3 class="font-jakarta text-[26px] font-bold tracking-tight">Let's build something resilient.</h3>
+            <p class="mt-2 text-[13px] leading-[1.6] text-white/60">
+              Kanpur-based. Open for Applied AI builds, offensive security audits, and high-throughput automation pipelines.
+            </p>
+
+            <div class="mt-6 space-y-3">
+              <!-- Click to copy email card -->
+              <button 
+                id="copyEmailBtn" 
+                class="w-full text-left rounded-2xl border border-white/10 bg-white/[0.03] p-4 flex items-center justify-between hover:bg-white/[0.06] hover:border-lime/40 transition group"
+              >
+                <div class="flex items-center gap-3 min-w-0">
+                  <div class="w-10 h-10 rounded-xl bg-lime/15 border border-lime/30 grid place-items-center text-lime shrink-0">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                  </div>
+                  <div class="min-w-0">
+                    <div class="font-mono text-[10px] text-white/40 uppercase">EMAIL — CLICK TO COPY</div>
+                    <div class="font-mono text-[13px] text-white font-medium truncate">anant013opp@gmail.com</div>
+                  </div>
+                </div>
+                <i data-lucide="copy" class="w-4 h-4 text-white/30 group-hover:text-lime transition shrink-0 ml-2"></i>
+              </button>
+
+              <!-- Phone & WhatsApp Grid -->
+              <div class="grid sm:grid-cols-2 gap-3">
+                <a href="tel:+918887092926" class="rounded-2xl border border-white/10 bg-white/[0.03] p-4 hover:bg-white/[0.06] hover:border-white/20 transition">
+                  <div class="font-mono text-[10px] text-white/40 uppercase">PHONE / VOICE</div>
+                  <div class="font-mono text-[13px] font-medium text-white mt-0.5">+91 8887092926</div>
+                </a>
+
+                <a href="https://wa.me/918887092926" target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-lime/30 bg-lime/10 p-4 hover:bg-lime hover:text-obsidian transition group">
+                  <div class="font-mono text-[10px] text-lime group-hover:text-obsidian/70 uppercase font-bold">WHATSAPP</div>
+                  <div class="font-mono text-[13px] font-bold text-lime group-hover:text-obsidian mt-0.5">Chat Direct ↗</div>
+                </a>
+              </div>
+
+              <!-- Instagram & Location -->
+              <div class="grid sm:grid-cols-2 gap-3">
+                <a href="https://instagram.com/anantpandat13" target="_blank" rel="noopener noreferrer" class="rounded-2xl border border-white/10 bg-white/[0.03] p-4 hover:bg-white/[0.06] hover:border-white/20 transition">
+                  <div class="font-mono text-[10px] text-white/40 uppercase">INSTAGRAM</div>
+                  <div class="font-mono text-[13px] font-medium text-white mt-0.5 flex items-center gap-1.5">
+                    <i data-lucide="instagram" class="w-3.5 h-3.5 text-white/60"></i> @anantpandat13
+                  </div>
+                </a>
+
+                <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+                  <div class="font-mono text-[10px] text-white/40 uppercase">LOCATION</div>
+                  <div class="font-mono text-[12px] font-medium text-white mt-0.5 flex items-center gap-1">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-lime"></i> Kanpur, UP, India
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Live Queue Form (With Contact Data Persistence) -->
+        <div class="glass-card rounded-[28px] p-6 md:p-8">
+          <div data-tilt>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+              <span class="font-mono text-[11px] tracking-wider text-white/50 uppercase font-semibold">LIVE MESSAGE QUEUE</span>
+              <span class="font-mono text-[10px] text-lime flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-lime animate-pulse"></span> DIRECT ROUTE
+              </span>
+            </div>
+
+            <!-- Form properly aggregating name, contact, and message into mailto -->
+            <form id="contactForm" class="mt-6 space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <label class="block space-y-1.5">
+                  <span class="font-mono text-[10.5px] text-white/50 uppercase">YOUR NAME</span>
+                  <input 
+                    type="text" 
+                    id="formName" 
+                    required 
+                    placeholder="Name or Organization" 
+                    class="w-full rounded-xl border border-white/10 bg-obsidian2 px-4 py-3 text-[13px] outline-none focus:border-lime/50 text-white placeholder:text-white/25"
+                  />
+                </label>
+
+                <label class="block space-y-1.5">
+                  <span class="font-mono text-[10.5px] text-white/50 uppercase">EMAIL OR PHONE</span>
+                  <input 
+                    type="text" 
+                    id="formContact" 
+                    required 
+                    placeholder="you@domain.com or +91..." 
+                    class="w-full rounded-xl border border-white/10 bg-obsidian2 px-4 py-3 text-[13px] outline-none focus:border-lime/50 text-white placeholder:text-white/25"
+                  />
+                </label>
+              </div>
+
+              <label class="block space-y-1.5">
+                <span class="font-mono text-[10.5px] text-white/50 uppercase">PROJECT BRIEF / INQUIRY</span>
+                <textarea 
+                  id="formMsg" 
+                  required 
+                  rows="4" 
+                  placeholder="Tell me about your architecture, timeline, and goals..." 
+                  class="w-full rounded-xl border border-white/10 bg-obsidian2 px-4 py-3 text-[13px] outline-none focus:border-lime/50 text-white placeholder:text-white/25 resize-none"
+                ></textarea>
+              </label>
+
+              <button 
+                type="submit" 
+                class="w-full rounded-xl bg-white text-obsidian py-3.5 font-jakarta font-bold text-[13px] hover:bg-white/90 transition flex items-center justify-center gap-2"
+              >
+                Send Message via Mail Client <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </button>
+
+              <div class="font-mono text-[10px] text-white/35 text-center flex items-center justify-center gap-1.5 pt-1">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-lime"></i> Local mailto dispatch. Fast response &lt; 2h IST.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[11px] text-white/35">
+      <div>© <span id="year"></span> Anant Upadhyay • Kanpur Node • AU.dev</div>
+      <div class="flex items-center gap-4 text-white/40">
+        <a href="mailto:anant013opp@gmail.com" class="hover:text-white transition">Email</a>
+        <a href="https://wa.me/918887092926" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">WhatsApp</a>
+        <a href="https://instagram.com/anantpandat13" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Instagram</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Floating Toast Notification Container -->
+  <div id="toast" class="pointer-events-none fixed bottom-6 right-6 z-50 glass-card rounded-2xl border border-lime/30 px-5 py-3 flex items-center gap-3 shadow-[0_10px_40px_rgba(0,0,0,0.6)] opacity-0 translate-y-3 transition-all duration-300">
+    <div class="w-5 h-5 rounded-full bg-lime text-obsidian grid place-items-center">
+      <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+    </div>
+    <span id="toastMsg" class="font-mono text-[12px] text-white/90">Notification</span>
+  </div>
+
+  <!-- JavaScript Engine -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Auto-update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toast Trigger System
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-3', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-3', 'pointer-events-none');
+      }, 3000);
+    }
+
+    // Responsive Mobile Drawer Toggle
+    const mobileBtn = document.getElementById('mobileMenuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    mobileBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('hidden');
+      const isClosed = mobileDrawer.classList.contains('hidden');
+      mobileBtn.innerHTML = isClosed 
+        ? '<i data-lucide="menu" class="w-5 h-5"></i>' 
+        : '<i data-lucide="x" class="w-5 h-5"></i>';
+      lucide.createIcons();
+    });
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.add('hidden');
+        mobileBtn.innerHTML = '<i data-lucide="menu" class="w-5 h-5"></i>';
+        lucide.createIcons();
+      });
+    });
+
+    // Delegated Mouse-Tracking Spotlight & 3D Tilt (No Stale Closure!)
+    window.addEventListener('mousemove', (e) => {
+      const hoveredCard = e.target.closest('.glass-card');
+      document.querySelectorAll('.glass-card').forEach((card) => {
+        const tiltChild = card.querySelector('[data-tilt]');
+        if (card === hoveredCard) {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+
+          if (tiltChild) {
+            const rotX = (y / rect.height - 0.5) * -7;
+            const rotY = (x / rect.width - 0.5) * 7;
+            tiltChild.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(0)`;
+          }
+        } else if (tiltChild) {
+          tiltChild.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+        }
+      });
+    });
+    window.addEventListener('mouseleave', () => {
+      document.querySelectorAll('[data-tilt]').forEach((el) => {
+        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+      });
+    });
+
+    // Viewport Animated Counters for Metrics Ribbon
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.counter-val').forEach(counter => {
+            const target = parseInt(counter.dataset.target, 10);
+            let start = 0;
+            const duration = 1400;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const easeProgress = 1 - Math.pow(1 - progress, 3);
+              counter.textContent = Math.floor(easeProgress * target);
+              if (progress < 1) requestAnimationFrame(update);
+              else counter.textContent = target;
+            }
+            requestAnimationFrame(update);
+          });
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    const ribbon = document.getElementById('metrics-ribbon');
+    if (ribbon) observer.observe(ribbon);
+
+    // Character Decryption Scramble Effect for Section Headings
+    const scrambleElements = document.querySelectorAll('[data-scramble]');
+    function triggerScramble(el) {
+      const originalText = el.dataset.scramble;
+      let step = 0;
+      const totalSteps = 16;
+      const interval = setInterval(() => {
+        el.textContent = originalText
+          .split('')
+          .map((char, idx) => {
+            if (char === ' ') return ' ';
+            if (idx < (step / totalSteps) * originalText.length) return originalText[idx];
+            return "01_!&X%#"[Math.floor(Math.random() * 7)];
+          })
+          .join('');
+        step++;
+        if (step > totalSteps) {
+          el.textContent = originalText;
+          clearInterval(interval);
+        }
+      }, 35);
+    }
+    const scrambleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          triggerScramble(entry.target);
+          scrambleObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    scrambleElements.forEach(el => {
+      scrambleObserver.observe(el);
+      el.addEventListener('mouseenter', () => triggerScramble(el));
+    });
+
+    // Interactive Terminal Engine
+    const terminalLog = document.getElementById('terminalLog');
+    const terminalForm = document.getElementById('terminalForm');
+    const terminalInput = document.getElementById('terminalInput');
+
+    const commands = {
+      whoami: "Anant Upadhyay — Applied AI & Offensive Security Researcher from Kanpur.",
+      certs: "5x Microsoft Azure AI • IIT Kanpur Hackathon 2025 • Open University UK InfoSec • IIDE • Epoch Olympiad Rank 47",
+      skills: "Python, Azure AI, Document Intelligence, Metasploit, Kali Linux, k6, Snyk, Pyrogram, AsyncIO, Gemini/GPT APIs",
+      contact: "Email: anant013opp@gmail.com | Phone: +91 8887092926 | IG: @anantpandat13",
+      help: "Available commands: whoami, certs, skills, contact, clear",
+      clear: "__CLEAR__"
+    };
+
+    function executeCommand(cmd) {
+      const trimmed = cmd.trim().toLowerCase();
+      if (!trimmed) return;
+
+      if (trimmed === 'clear') {
+        terminalLog.innerHTML = '<div class="text-white/40">// Terminal cleared. Type "help" for options.</div>';
+        return;
+      }
+
+      const response = commands[trimmed] || `Command not found: "${cmd}". Type "help" for options.`;
+      const cmdLine = document.createElement('div');
+      cmdLine.innerHTML = `<span class="text-lime">anant@kanpur-node:~$</span> ${cmd}`;
+      const resLine = document.createElement('div');
+      resLine.className = 'text-white/80 pl-3';
+      resLine.textContent = `> ${response}`;
+
+      terminalLog.appendChild(cmdLine);
+      terminalLog.appendChild(resLine);
+      terminalLog.scrollTo({ top: terminalLog.scrollHeight, behavior: 'smooth' });
+    }
+
+    terminalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      executeCommand(terminalInput.value);
+      terminalInput.value = '';
+    });
+
+    document.querySelectorAll('.term-chip').forEach(chip => {
+      chip.addEventListener('click', () => executeCommand(chip.dataset.cmd));
+    });
+
+    // Project Category Filter Handler
+    const filterButtons = document.querySelectorAll('.proj-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('active', 'bg-white', 'text-obsidian', 'font-bold');
+          b.classList.add('bg-white/[0.04]', 'text-white/60');
+        });
+        btn.classList.add('active', 'bg-white', 'text-obsidian', 'font-bold');
+        btn.classList.remove('bg-white/[0.04]', 'text-white/60');
+
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+            card.animate([
+              { opacity: 0, transform: 'translateY(10px)' },
+              { opacity: 1, transform: 'translateY(0)' }
+            ], { duration: 250, easing: 'ease-out' });
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Copy Email to Clipboard
+    document.getElementById('copyEmailBtn').addEventListener('click', () => {
+      navigator.clipboard.writeText('anant013opp@gmail.com').then(() => {
+        showToast('✓ Copied anant013opp@gmail.com to clipboard');
+      });
+    });
+
+    // Contact Form Submission Aggregator
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('formName').value.trim();
+      const contact = document.getElementById('formContact').value.trim();
+      const msg = document.getElementById('formMsg').value.trim();
+
+      const bodyContent = `Name: ${name}\nContact (Email/Phone): ${contact}\n\nProject Brief / Message:\n${msg}`;
+      const mailtoUrl = `mailto:anant013opp@gmail.com?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(bodyContent)}`;
+
+      showToast('✓ Queued message — opening mail client...');
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 500);
+    });
+  </script>
+</body>
+</html>
